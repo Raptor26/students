@@ -1,0 +1,253 @@
+[p LITE_MODE AUTOSTATIC PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F886 ]
+[d frameptr 6 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\pic\eeprom.c
+[v _eecpymem eecpymem `(v  1 e 1 0 ]
+"39
+[v _memcpyee memcpyee `(v  1 e 1 0 ]
+"34 D:\_RWS\Prj_Raptor\Stilsoft\src/Init_func.c
+[v _Init_Oscillator Init_Oscillator `(v  1 e 1 0 ]
+"45
+[v _Init_InOutPorts Init_InOutPorts `(v  1 e 1 0 ]
+"60
+[v _Init_TMR2 Init_TMR2 `(v  1 e 1 0 ]
+"72
+[v _Init_UART1 Init_UART1 `(v  1 e 1 0 ]
+"35 D:\_RWS\Prj_Raptor\Stilsoft\src/main.c
+[v _main main `(i  1 e 2 0 ]
+"54
+[v _ISR_my ISR_my `II(v  1 e 1 0 ]
+[s S193 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"243 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f886.h
+[u S202 . 1 `S193 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES202  1 e 1 @6 ]
+[s S404 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"305
+[u S413 . 1 `S404 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES413  1 e 1 @7 ]
+[s S35 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"401
+[s S44 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 TMR0IE 1 0 :1:5 
+]
+[u S49 . 1 `S35 1 . 1 0 `S44 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES49  1 e 1 @11 ]
+[s S86 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+]
+"472
+[u S94 . 1 `S86 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES94  1 e 1 @12 ]
+[s S250 . 1 `uc 1 T2CKPS 1 0 :2:0 
+`uc 1 TMR2ON 1 0 :1:2 
+`uc 1 TOUTPS 1 0 :4:3 
+]
+"712
+[s S254 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+`uc 1 T2CKPS1 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 TOUTPS0 1 0 :1:3 
+`uc 1 TOUTPS1 1 0 :1:4 
+`uc 1 TOUTPS2 1 0 :1:5 
+`uc 1 TOUTPS3 1 0 :1:6 
+]
+[u S262 . 1 `S250 1 . 1 0 `S254 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES262  1 e 1 @18 ]
+[s S338 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"987
+[s S347 . 1 `uc 1 RCD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S351 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 nRC8 1 0 :1:6 
+]
+[s S354 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[u S357 . 1 `S338 1 . 1 0 `S347 1 . 1 0 `S351 1 . 1 0 `S354 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES357  1 e 1 @24 ]
+"1157
+[v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
+[s S214 . 1 `uc 1 TRISA0 1 0 :1:0 
+`uc 1 TRISA1 1 0 :1:1 
+`uc 1 TRISA2 1 0 :1:2 
+`uc 1 TRISA3 1 0 :1:3 
+`uc 1 TRISA4 1 0 :1:4 
+`uc 1 TRISA5 1 0 :1:5 
+`uc 1 TRISA6 1 0 :1:6 
+`uc 1 TRISA7 1 0 :1:7 
+]
+"1352
+[u S223 . 1 `S214 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES223  1 e 1 @133 ]
+[s S172 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"1414
+[u S181 . 1 `S172 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES181  1 e 1 @134 ]
+[s S67 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+]
+"1558
+[u S75 . 1 `S67 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES75  1 e 1 @140 ]
+"1702
+[v _OSCCON OSCCON `VEuc  1 e 1 @143 ]
+[s S145 . 1 `uc 1 SCS 1 0 :1:0 
+`uc 1 LTS 1 0 :1:1 
+`uc 1 HTS 1 0 :1:2 
+`uc 1 OSTS 1 0 :1:3 
+`uc 1 IRCF 1 0 :3:4 
+]
+"1722
+[s S151 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 IRCF0 1 0 :1:4 
+`uc 1 IRCF1 1 0 :1:5 
+`uc 1 IRCF2 1 0 :1:6 
+]
+[u S156 . 1 `S145 1 . 1 0 `S151 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES156  1 e 1 @143 ]
+"1881
+[v _PR2 PR2 `VEuc  1 e 1 @146 ]
+[s S301 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"2422
+[s S310 . 1 `uc 1 TXD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 nTX8 1 0 :1:6 
+]
+[s S314 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[u S317 . 1 `S301 1 . 1 0 `S310 1 . 1 0 `S314 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES317  1 e 1 @152 ]
+"2482
+[v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
+"2810
+[v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
+[s S382 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 SCKP 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"3192
+[u S391 . 1 `S382 1 . 1 0 ]
+[v _BAUDCTLbits BAUDCTLbits `VES391  1 e 1 @391 ]
+[s S235 . 1 `uc 1 ANS0 1 0 :1:0 
+`uc 1 ANS1 1 0 :1:1 
+`uc 1 ANS2 1 0 :1:2 
+`uc 1 ANS3 1 0 :1:3 
+`uc 1 ANS4 1 0 :1:4 
+]
+"3241
+[u S241 . 1 `S235 1 . 1 0 ]
+[v _ANSELbits ANSELbits `VES241  1 e 1 @392 ]
+"3271
+[v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
+"19 D:\_RWS\Prj_Raptor\Stilsoft\src/main.c
+[v _led0cont led0cont `ui  1 e 2 0 ]
+"22
+[v _adcValue adcValue `ui  1 e 2 0 ]
+"35
+[v _main main `(i  1 e 2 0 ]
+{
+"51
+} 0
+"72 D:\_RWS\Prj_Raptor\Stilsoft\src/Init_func.c
+[v _Init_UART1 Init_UART1 `(v  1 e 1 0 ]
+{
+"96
+} 0
+"60
+[v _Init_TMR2 Init_TMR2 `(v  1 e 1 0 ]
+{
+"69
+} 0
+"34
+[v _Init_Oscillator Init_Oscillator `(v  1 e 1 0 ]
+{
+"42
+} 0
+"45
+[v _Init_InOutPorts Init_InOutPorts `(v  1 e 1 0 ]
+{
+"57
+} 0
+"54 D:\_RWS\Prj_Raptor\Stilsoft\src/main.c
+[v _ISR_my ISR_my `II(v  1 e 1 0 ]
+{
+"70
+[v ISR_my@adcValueH adcValueH `ui  1 a 2 8 ]
+"67
+[v ISR_my@adcValueL adcValueL `ui  1 a 2 6 ]
+"75
+} 0
