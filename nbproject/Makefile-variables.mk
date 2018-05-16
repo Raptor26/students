@@ -6,8 +6,8 @@
 CND_BASEDIR=`pwd`
 # default configuration
 CND_ARTIFACT_DIR_default=dist/default/production
-CND_ARTIFACT_NAME_default=Stilsoft.X.production.hex
-CND_ARTIFACT_PATH_default=dist/default/production/Stilsoft.X.production.hex
+CND_ARTIFACT_NAME_default=Stilsoft.production.hex
+CND_ARTIFACT_PATH_default=dist/default/production/Stilsoft.production.hex
 CND_PACKAGE_DIR_default=${CND_DISTDIR}/default/package
-CND_PACKAGE_NAME_default=stilsoft.x.tar
-CND_PACKAGE_PATH_default=${CND_DISTDIR}/default/package/stilsoft.x.tar
+CND_PACKAGE_NAME_default=stilsoft.tar
+CND_PACKAGE_PATH_default=${CND_DISTDIR}/default/package/stilsoft.tar

@@ -31,146 +31,165 @@
 #include <stdint.h>
 unsigned int led0cont;
 void Init_Oscillator(void);
-void Init_InOutPorts (void);
-void Init_Adc (void);
-void Init_UART1 (void);
+void Init_InOutPorts(void);
+void Init_Adc(void);
+void Init_UART1(void);
 
 int myVar;
 
 uint16_t adcValue;
 
-void main(void) {
-   
-    Init_Oscillator();
-    Init_InOutPorts();
-    Init_Adc();
-    Init_UART1();
-            
-    
-   INTCONbits.GIE = 1;
-    INTCONbits.PEIE = 1;
 
-    T2CONbits.TOUTPS = 0b1001;
-    T2CONbits.T2CKPS = 0b00;
-    T2CONbits.TMR2ON = 1;
-    PIE1bits.TMR2IE = 1;
-    PIR1bits.TMR2IF = 0;
-    PR2 = 100;
+void
+main(void)
+{
 
-    
-    
-    while (1) {
-        
-        if (TXSTAbits.TRMT == 1)
-        {
-            TXREG = 'H';
-        }
-        
-        TXREG = 0xFF;
-        
-        if (ADCON0bits.GO == 0)
-        {
-            ADCON0bits.GO = 1;
-        }
-//        PORTBbits.RB0 = 1;
-//        __delay_us(1000000);
-//        PORTBbits.RB0 = 0;
-//        __delay_us(1000000);
-        if (led0cont >= 1000) {
-            led0cont = 0;
-            if (PORTBbits.RB0 == 0) {
-                PORTBbits.RB0 = 1;
-            } else {
-                PORTBbits.RB0 = 0;
-            }
-        }
-    }
-    return;
+	Init_Oscillator();
+	Init_InOutPorts();
+	Init_Adc();
+	Init_UART1();
+
+
+	INTCONbits.GIE = 1;
+	INTCONbits.PEIE = 1;
+
+	T2CONbits.TOUTPS = 0b1001;
+	T2CONbits.T2CKPS = 0b00;
+	T2CONbits.TMR2ON = 1;
+	PIE1bits.TMR2IE = 1;
+	PIR1bits.TMR2IF = 0;
+	PR2 = 100;
+
+
+
+	while (1)
+	{
+
+		if (TXSTAbits.TRMT == 1)
+		{
+			TXREG = 'H';
+		}
+
+		TXREG = 0xFF;
+
+		if (ADCON0bits.GO == 0)
+		{
+			ADCON0bits.GO = 1;
+		}
+		//        PORTBbits.RB0 = 1;
+		//        __delay_us(1000000);
+		//        PORTBbits.RB0 = 0;
+		//        __delay_us(1000000);
+		if (led0cont >= 1000)
+		{
+			led0cont = 0;
+			if (PORTBbits.RB0 == 0)
+			{
+				PORTBbits.RB0 = 1;
+			}
+			else
+			{
+				PORTBbits.RB0 = 0;
+			}
+		}
+	}
+	return;
 }
 
-void interrupt ISR_my(void) {
-    if (PIE1bits.TMR2IE == 1 && PIR1bits.TMR2IF == 1)
-    {
-         PIR1bits.TMR2IF = 0;
-         led0cont++;
-    }
-    if (PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
-    {
-        PIR1bits.ADIF = 0;
-        uint16_t adcValueL =(uint16_t)ADRESL;
-        adcValueL = (adcValueL >> 6) & 0x0003;
-         
-        uint16_t adcValueH =(uint16_t)ADRESH;
-        adcValueH = (adcValueH << 2) &0x03FC;
-        
-        adcValue = adcValueL | adcValueH;
-    } 
+
+void interrupt
+ISR_my(void)
+{
+	if (PIE1bits.TMR2IE == 1 && PIR1bits.TMR2IF == 1)
+	{
+		PIR1bits.TMR2IF = 0;
+		led0cont++;
+	}
+	if (PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
+	{
+		PIR1bits.ADIF = 0;
+		uint16_t adcValueL = (uint16_t) ADRESL;
+		adcValueL = (adcValueL >> 6) & 0x0003;
+
+		uint16_t adcValueH = (uint16_t) ADRESH;
+		adcValueH = (adcValueH << 2) & 0x03FC;
+
+		adcValue = adcValueL | adcValueH;
+	}
 }
 
-void Init_Oscillator(void)
+
+void
+Init_Oscillator(void)
 {
-    OSCCON = 0b01100111;
-    OSCCONbits.IRCF = 0b110;
-    OSCCONbits.OSTS = 0;
-    OSCCONbits.HTS = 1;
-    OSCCONbits.LTS = 1;
-    OSCCONbits.SCS = 1;
+	OSCCON = 0b01100111;
+	OSCCONbits.IRCF = 0b110;
+	OSCCONbits.OSTS = 0;
+	OSCCONbits.HTS = 1;
+	OSCCONbits.LTS = 1;
+	OSCCONbits.SCS = 1;
 }
 
-void Init_InOutPorts (void) 
-{
-    // отключение аналоговых выводов.
-     ANSELH = 0;
-    
-     //конфигурирование порта DS1 для светодиода.
-     TRISBbits.TRISB0 = 0;
-    PORTBbits.RB0 = 1;
 
-    //конфигурация входа для АЦП
-    TRISAbits.TRISA0 = 1;
-        ANSELbits.ANS0 = 1;
-    
-   }
-
-void Init_Adc (void)
+void
+Init_InOutPorts(void)
 {
-    ADCON0bits.ADCS = 0b11;
-    ADCON0bits.CHS = 0b0000;
-    ADCON1bits.ADFM = 0;
-    ADCON1bits.VCFG1 = 0;
-    ADCON1bits.VCFG0 = 0;
-    ADCON0bits.ADON = 1;
-    
-    //вклчение прерывания
-    INTCONbits.GIE = 1;
-    INTCONbits.PEIE = 1;
-    PIE1bits.ADIE = 1;
-    PIR1bits.ADIF = 0;
-     
+	// отключение аналоговых выводов.
+	ANSELH = 0;
+
+	//конфигурирование порта DS1 для светодиода.
+	TRISBbits.TRISB0 = 0;
+	PORTBbits.RB0 = 1;
+
+	//конфигурация входа для АЦП
+	TRISAbits.TRISA0 = 1;
+	ANSELbits.ANS0 = 1;
+
 }
 
-void Init_UART1 (void)
+
+void
+Init_Adc(void)
 {
-    TXSTAbits.TXEN = 1;
-    TXSTAbits.BRGH = 1;
-    
-    RCSTAbits.SPEN = 1;
-    RCSTAbits.CREN = 1;
-    RCSTAbits.FERR = 1;
-    RCSTAbits.OERR = 1;
-    
-    BAUDCTLbits.ABDOVF = 1;
-    BAUDCTLbits.SCKP = 1;
-    BAUDCTLbits.ABDEN = 1;
-    BAUDCTLbits.BRG16 = 1;
-    SPBRG = 25;
-    //отключение аналоговых портов
-    ANSELH = 0;
-    
-    PORTCbits.RC7 = 1;
-    PORTCbits.RC6 = 0;
-    
-    
-    
-    
+	ADCON0bits.ADCS = 0b11;
+	ADCON0bits.CHS = 0b0000;
+	ADCON1bits.ADFM = 0;
+	ADCON1bits.VCFG1 = 0;
+	ADCON1bits.VCFG0 = 0;
+	ADCON0bits.ADON = 1;
+
+	//вклчение прерывания
+	INTCONbits.GIE = 1;
+	INTCONbits.PEIE = 1;
+	PIE1bits.ADIE = 1;
+	PIR1bits.ADIF = 0;
+
+}
+
+
+void
+Init_UART1(void)
+{
+	TXSTAbits.TXEN = 1;
+	TXSTAbits.BRGH = 1;
+
+	RCSTAbits.SPEN = 1;
+	RCSTAbits.CREN = 1;
+	RCSTAbits.FERR = 1;
+	RCSTAbits.OERR = 1;
+
+	BAUDCTLbits.ABDOVF = 1;
+	BAUDCTLbits.SCKP = 1;
+	BAUDCTLbits.ABDEN = 1;
+	BAUDCTLbits.BRG16 = 1;
+	SPBRG = 25;
+	//отключение аналоговых портов
+	ANSELH = 0;
+
+	PORTCbits.RC7 = 1;
+	PORTCbits.RC6 = 0;
+
+
+
+
 }

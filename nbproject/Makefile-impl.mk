@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Stilsoft.X
+PROJECTNAME=Stilsoft
 
 # Active Configuration
 DEFAULTCONF=default
